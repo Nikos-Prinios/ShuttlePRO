@@ -4,7 +4,8 @@
 #CFLAGS=-g -W -Wall
 CFLAGS=-O3 -W -Wall
 
-INSTALL_DIR=/usr/local/bin
+#INSTALL_DIR=/usr/local
+#removed this so it can be set for Packaging.
 
 OBJ=\
 	readconfig.o \
@@ -13,7 +14,7 @@ OBJ=\
 all: shuttlepro
 
 install: all
-	install shuttle shuttlepro ${INSTALL_DIR}
+	install shuttle shuttlepro ${DESTDIR}/bin/
 
 shuttlepro: ${OBJ}
 	gcc ${CFLAGS} ${OBJ} -o shuttlepro -L /usr/X11R6/lib -lX11 -lXtst
